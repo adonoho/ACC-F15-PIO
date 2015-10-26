@@ -17,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PIO 02.xcdatamodel"; sourceTree = "<group>"; };
 		CE720A2E1BD1B076001F9DA9 /* PIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE720A311BD1B076001F9DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE720A341BD1B076001F9DA9 /* PIO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = PIO.xcdatamodel; sourceTree = "<group>"; };
@@ -295,6 +296,7 @@
 				CE720A471BD1B076001F9DA9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -302,9 +304,10 @@
 		CE720A331BD1B076001F9DA9 /* PIO.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */,
 				CE720A341BD1B076001F9DA9 /* PIO.xcdatamodel */,
 			);
-			currentVersion = CE720A341BD1B076001F9DA9 /* PIO.xcdatamodel */;
+			currentVersion = CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */;
 			path = PIO.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

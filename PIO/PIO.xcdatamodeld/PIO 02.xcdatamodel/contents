@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="8195" systemVersion="14F27" minimumToolsVersion="Automatic">
+    <entity name="Event">
+        <attribute name="timeStamp" optional="YES" attributeType="Date">
+            <userInfo/>
+        </attribute>
+        <userInfo/>
+    </entity>
+    <entity name="Item" representedClassName="." syncable="YES">
+        <attribute name="date" optional="YES" attributeType="Date" indexed="YES" syncable="YES"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="problem" attributeType="String" defaultValueString="_problem" syncable="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="_title" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Event" positionX="268" positionY="111" width="128" height="60"/>
+        <element name="Item" positionX="261" positionY="198" width="128" height="103"/>
+    </elements>
+</model>

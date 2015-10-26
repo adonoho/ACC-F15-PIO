@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
             if let master = controllers.first as? UINavigationController,
                 mvc = master.topViewController as? MasterViewController {
 
-                    mvc.managedObjectContext = self.managedObjectContext
+                    mvc.managedObjectContext = managedObjectContext
 
                     if let detail = controllers.last as? UINavigationController,
                         navItem = detail.topViewController?.navigationItem
@@ -103,10 +103,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SingleViewCoreData.sqlite")
 
+        let options: [NSObject: AnyObject] = [NSMigratePersistentStoresAutomaticallyOption: true,
+            NSInferMappingModelAutomaticallyOption: true]
         do { try coordinator.addPersistentStoreWithType(NSSQLiteStoreType,
             configuration: nil,
             URL: url,
-            options: nil)
+            options: options)
         }
         catch let addError as NSError {
 
