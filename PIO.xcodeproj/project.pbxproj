@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE4857E61BDF034100CE4C3F /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */; };
+		CE4857E71BDF034100CE4C3F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4857E51BDF034100CE4C3F /* Item.swift */; };
 		CE720A321BD1B076001F9DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE720A311BD1B076001F9DA9 /* AppDelegate.swift */; };
 		CE720A351BD1B076001F9DA9 /* PIO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = CE720A331BD1B076001F9DA9 /* PIO.xcdatamodeld */; };
 		CE720A371BD1B076001F9DA9 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE720A361BD1B076001F9DA9 /* MasterViewController.swift */; };
@@ -17,6 +19,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "PIO/Model/Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE4857E51BDF034100CE4C3F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = PIO/Model/Item.swift; sourceTree = "<group>"; };
+		CE4857ED1BDF0C1F00CE4C3F /* PIO 03.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PIO 03.xcdatamodel"; sourceTree = "<group>"; };
 		CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PIO 02.xcdatamodel"; sourceTree = "<group>"; };
 		CE720A2E1BD1B076001F9DA9 /* PIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE720A311BD1B076001F9DA9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -40,6 +45,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE4857E81BDF038300CE4C3F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE4857E51BDF034100CE4C3F /* Item.swift */,
+				CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */,
+			);
+			name = Model;
+			path = ..;
+			sourceTree = "<group>";
+		};
 		CE720A251BD1B076001F9DA9 = {
 			isa = PBXGroup;
 			children = (
@@ -62,6 +77,7 @@
 				CE720A311BD1B076001F9DA9 /* AppDelegate.swift */,
 				CE720A361BD1B076001F9DA9 /* MasterViewController.swift */,
 				CE720A381BD1B076001F9DA9 /* DetailViewController.swift */,
+				CE4857E81BDF038300CE4C3F /* Model */,
 				CE720A3A1BD1B076001F9DA9 /* Main.storyboard */,
 				CE720A3D1BD1B076001F9DA9 /* Assets.xcassets */,
 				CE720A3F1BD1B076001F9DA9 /* LaunchScreen.storyboard */,
@@ -145,6 +161,8 @@
 				CE720A321BD1B076001F9DA9 /* AppDelegate.swift in Sources */,
 				CE720A371BD1B076001F9DA9 /* MasterViewController.swift in Sources */,
 				CE720A391BD1B076001F9DA9 /* DetailViewController.swift in Sources */,
+				CE4857E71BDF034100CE4C3F /* Item.swift in Sources */,
+				CE4857E61BDF034100CE4C3F /* Item+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -304,10 +322,11 @@
 		CE720A331BD1B076001F9DA9 /* PIO.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE4857ED1BDF0C1F00CE4C3F /* PIO 03.xcdatamodel */,
 				CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */,
 				CE720A341BD1B076001F9DA9 /* PIO.xcdatamodel */,
 			);
-			currentVersion = CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */;
+			currentVersion = CE4857ED1BDF0C1F00CE4C3F /* PIO 03.xcdatamodel */;
 			path = PIO.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
