@@ -76,7 +76,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         guard let dnc = secondaryViewController as? UINavigationController,
             dvc = dnc.topViewController as? DetailViewController else { return false }
 
-        if dvc.detailItem == nil {
+        if dvc.item == nil {
             // Return true to indicate that we have handled the collapse by doing nothing; the secondary controller will be discarded.
             return true
         }

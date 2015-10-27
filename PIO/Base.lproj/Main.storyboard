@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="14F1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="H1p-Uh-vWS">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Master-->
@@ -32,29 +33,53 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Detail view content goes here" textAlignment="center" lineBreakMode="tailTruncation" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="0XM-y9-sOw">
-                                <rect key="frame" x="20" y="292" width="560" height="17"/>
+                                <rect key="frame" x="20" y="72" width="560" height="17"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" size="system"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AND-s4-JtB">
+                                <rect key="frame" x="531" y="97" width="51" height="31"/>
+                            </switch>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="E5O-KO-yxP">
+                                <rect key="frame" x="20" y="97" width="503" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vfh-ti-IbZ">
+                                <rect key="frame" x="20" y="135" width="560" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="leading" secondItem="svH-Pt-448" secondAttribute="leading" constant="20" symbolic="YES" id="Tsc-yG-G1q"/>
-                            <constraint firstItem="0XM-y9-sOw" firstAttribute="centerY" secondItem="svH-Pt-448" secondAttribute="centerY" id="jWN-iV-94e"/>
-                            <constraint firstAttribute="trailing" secondItem="0XM-y9-sOw" secondAttribute="trailing" constant="20" symbolic="YES" id="tHV-ZD-HQj"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="AND-s4-JtB" secondAttribute="trailing" id="1Ef-vL-ieg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="E5O-KO-yxP" secondAttribute="leading" id="D7v-Ie-PgZ"/>
+                            <constraint firstItem="AND-s4-JtB" firstAttribute="leading" secondItem="E5O-KO-yxP" secondAttribute="trailing" constant="8" id="J9i-eC-XLd"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="0XM-y9-sOw" secondAttribute="leading" id="Ml0-2n-fT6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="0XM-y9-sOw" secondAttribute="trailing" id="NTP-Li-AbI"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Vfh-ti-IbZ" secondAttribute="trailing" id="aGa-Kp-891"/>
+                            <constraint firstItem="Vfh-ti-IbZ" firstAttribute="top" secondItem="E5O-KO-yxP" secondAttribute="bottom" constant="8" id="azE-90-uDc"/>
+                            <constraint firstItem="AND-s4-JtB" firstAttribute="centerY" secondItem="E5O-KO-yxP" secondAttribute="centerY" id="hFa-We-XzT"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Vfh-ti-IbZ" secondAttribute="leading" id="kJU-3a-TbM"/>
+                            <constraint firstItem="E5O-KO-yxP" firstAttribute="top" secondItem="0XM-y9-sOw" secondAttribute="bottom" constant="8" id="nZj-Aq-P7B"/>
+                            <constraint firstItem="0XM-y9-sOw" firstAttribute="top" secondItem="SYR-Wa-9uf" secondAttribute="bottom" constant="8" id="wnY-Fr-4eT"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Detail" id="mOI-FS-AaM"/>
                     <connections>
-                        <outlet property="detailDescriptionLabel" destination="0XM-y9-sOw" id="deQ-Na-JPF"/>
+                        <outlet property="dateLabel" destination="0XM-y9-sOw" id="Ile-I1-bQm"/>
+                        <outlet property="doneSwitch" destination="AND-s4-JtB" id="FU3-Ki-XfM"/>
+                        <outlet property="problemField" destination="Vfh-ti-IbZ" id="O07-68-qOE"/>
+                        <outlet property="titleField" destination="E5O-KO-yxP" id="j2W-sc-6x2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FJe-Yq-33r" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="709" y="129"/>
+            <point key="canvasLocation" x="813" y="129"/>
         </scene>
         <!--Split View Controller-->
         <scene sceneID="Nki-YV-4Qg">

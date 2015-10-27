@@ -14,9 +14,9 @@ import CoreData
 
 extension Item {
 
-    @NSManaged var date: NSDate?
+    @NSManaged var date: NSDate
     @NSManaged var done: Bool
-    @NSManaged var problem: String?
-    @NSManaged var title: String?
+    @NSManaged var problem: String
+    @NSManaged var title: String
 
 }

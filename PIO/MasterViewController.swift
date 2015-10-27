@@ -54,14 +54,16 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     // MARK: - Segues
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "showDetail" {
-            if let indexPath = self.tableView.indexPathForSelectedRow {
-            let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Item
-                let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
-                controller.detailItem = object
-                controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
+
+        if segue.identifier == "showDetail",
+            let indexPath = tableView.indexPathForSelectedRow,
+            item = fetchedResultsController.objectAtIndexPath(indexPath) as? Item,
+            nc = segue.destinationViewController as? UINavigationController,
+            controller = nc.topViewController as? DetailViewController {
+
+                controller.item = item
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
                 controller.navigationItem.leftItemsSupplementBackButton = true
-            }
         }
     }
 
@@ -101,8 +103,8 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
     }
 
     func configureCell(cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) {
-        let object = self.fetchedResultsController.objectAtIndexPath(indexPath) as! Item
-        cell.textLabel!.text = object.date!.description
+        let item = fetchedResultsController.objectAtIndexPath(indexPath) as! Item
+        cell.textLabel!.text = item.date.description
     }
 
     // MARK: - Fetched results controller

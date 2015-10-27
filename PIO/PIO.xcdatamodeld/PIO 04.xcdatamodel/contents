@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="467668680" indexed="YES" syncable="YES"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="problem" attributeType="String" defaultValueString="_problem" syncable="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="_title" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="261" positionY="198" width="128" height="105"/>
+    </elements>
+</model>
