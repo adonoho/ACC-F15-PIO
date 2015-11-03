@@ -16,6 +16,16 @@
 		CE720A3C1BD1B076001F9DA9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE720A3A1BD1B076001F9DA9 /* Main.storyboard */; };
 		CE720A3E1BD1B076001F9DA9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE720A3D1BD1B076001F9DA9 /* Assets.xcassets */; };
 		CE720A411BD1B076001F9DA9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE720A3F1BD1B076001F9DA9 /* LaunchScreen.storyboard */; };
+		CE90C21D1BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2131BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift */; };
+		CE90C21E1BE83C6B007C50E9 /* StampSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2141BE83C6B007C50E9 /* StampSize.swift */; };
+		CE90C21F1BE83C6B007C50E9 /* Image+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2151BE83C6B007C50E9 /* Image+CoreDataProperties.swift */; };
+		CE90C2201BE83C6B007C50E9 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2161BE83C6B007C50E9 /* Image.swift */; };
+		CE90C2211BE83C6B007C50E9 /* Photo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2171BE83C6B007C50E9 /* Photo+CoreDataProperties.swift */; };
+		CE90C2221BE83C6B007C50E9 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2181BE83C6B007C50E9 /* Photo.swift */; };
+		CE90C2251BE83C6B007C50E9 /* FullSize+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C21B1BE83C6B007C50E9 /* FullSize+CoreDataProperties.swift */; };
+		CE90C2261BE83C6B007C50E9 /* FullSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C21C1BE83C6B007C50E9 /* FullSize.swift */; };
+		CE90C2291BE83DD5007C50E9 /* ThumbSize+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2271BE83DD5007C50E9 /* ThumbSize+CoreDataProperties.swift */; };
+		CE90C22A1BE83DD5007C50E9 /* ThumbSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE90C2281BE83DD5007C50E9 /* ThumbSize.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +43,17 @@
 		CE720A3D1BD1B076001F9DA9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE720A401BD1B076001F9DA9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE720A421BD1B076001F9DA9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE90C2121BE836EF007C50E9 /* PIO 05.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PIO 05.xcdatamodel"; sourceTree = "<group>"; };
+		CE90C2131BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "StampSize+CoreDataProperties.swift"; path = "PIO/Model/StampSize+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE90C2141BE83C6B007C50E9 /* StampSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = StampSize.swift; path = PIO/Model/StampSize.swift; sourceTree = "<group>"; };
+		CE90C2151BE83C6B007C50E9 /* Image+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Image+CoreDataProperties.swift"; path = "PIO/Model/Image+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE90C2161BE83C6B007C50E9 /* Image.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Image.swift; path = PIO/Model/Image.swift; sourceTree = "<group>"; };
+		CE90C2171BE83C6B007C50E9 /* Photo+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Photo+CoreDataProperties.swift"; path = "PIO/Model/Photo+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE90C2181BE83C6B007C50E9 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Photo.swift; path = PIO/Model/Photo.swift; sourceTree = "<group>"; };
+		CE90C21B1BE83C6B007C50E9 /* FullSize+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "FullSize+CoreDataProperties.swift"; path = "PIO/Model/FullSize+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE90C21C1BE83C6B007C50E9 /* FullSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FullSize.swift; path = PIO/Model/FullSize.swift; sourceTree = "<group>"; };
+		CE90C2271BE83DD5007C50E9 /* ThumbSize+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "ThumbSize+CoreDataProperties.swift"; path = "PIO/Model/ThumbSize+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		CE90C2281BE83DD5007C50E9 /* ThumbSize.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ThumbSize.swift; path = PIO/Model/ThumbSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,8 +70,18 @@
 		CE4857E81BDF038300CE4C3F /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE90C21B1BE83C6B007C50E9 /* FullSize+CoreDataProperties.swift */,
+				CE90C21C1BE83C6B007C50E9 /* FullSize.swift */,
+				CE90C2151BE83C6B007C50E9 /* Image+CoreDataProperties.swift */,
+				CE90C2161BE83C6B007C50E9 /* Image.swift */,
 				CE4857E51BDF034100CE4C3F /* Item.swift */,
 				CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */,
+				CE90C2171BE83C6B007C50E9 /* Photo+CoreDataProperties.swift */,
+				CE90C2181BE83C6B007C50E9 /* Photo.swift */,
+				CE90C2131BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift */,
+				CE90C2141BE83C6B007C50E9 /* StampSize.swift */,
+				CE90C2271BE83DD5007C50E9 /* ThumbSize+CoreDataProperties.swift */,
+				CE90C2281BE83DD5007C50E9 /* ThumbSize.swift */,
 			);
 			name = Model;
 			path = ..;
@@ -158,12 +189,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE90C2221BE83C6B007C50E9 /* Photo.swift in Sources */,
+				CE90C21F1BE83C6B007C50E9 /* Image+CoreDataProperties.swift in Sources */,
+				CE90C21D1BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift in Sources */,
 				CE720A351BD1B076001F9DA9 /* PIO.xcdatamodeld in Sources */,
+				CE90C21E1BE83C6B007C50E9 /* StampSize.swift in Sources */,
+				CE90C22A1BE83DD5007C50E9 /* ThumbSize.swift in Sources */,
 				CE720A321BD1B076001F9DA9 /* AppDelegate.swift in Sources */,
+				CE90C2261BE83C6B007C50E9 /* FullSize.swift in Sources */,
 				CE720A371BD1B076001F9DA9 /* MasterViewController.swift in Sources */,
 				CE720A391BD1B076001F9DA9 /* DetailViewController.swift in Sources */,
+				CE90C2251BE83C6B007C50E9 /* FullSize+CoreDataProperties.swift in Sources */,
 				CE4857E71BDF034100CE4C3F /* Item.swift in Sources */,
+				CE90C2211BE83C6B007C50E9 /* Photo+CoreDataProperties.swift in Sources */,
 				CE4857E61BDF034100CE4C3F /* Item+CoreDataProperties.swift in Sources */,
+				CE90C2201BE83C6B007C50E9 /* Image.swift in Sources */,
+				CE90C2291BE83DD5007C50E9 /* ThumbSize+CoreDataProperties.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -323,12 +364,13 @@
 		CE720A331BD1B076001F9DA9 /* PIO.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				CE90C2121BE836EF007C50E9 /* PIO 05.xcdatamodel */,
 				CE4F7E7C1BE00EDC008DC43A /* PIO 04.xcdatamodel */,
 				CE4857ED1BDF0C1F00CE4C3F /* PIO 03.xcdatamodel */,
 				CE6C43361BD5CC73004B6068 /* PIO 02.xcdatamodel */,
 				CE720A341BD1B076001F9DA9 /* PIO.xcdatamodel */,
 			);
-			currentVersion = CE4F7E7C1BE00EDC008DC43A /* PIO 04.xcdatamodel */;
+			currentVersion = CE90C2121BE836EF007C50E9 /* PIO 05.xcdatamodel */;
 			path = PIO.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

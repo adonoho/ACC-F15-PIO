@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F1021" minimumToolsVersion="Automatic">
+    <entity name="FullSize" representedClassName=".FullSize" parentEntity="Image" syncable="YES">
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="fullSize" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <entity name="Image" representedClassName=".Image" isAbstract="YES" syncable="YES">
+        <attribute name="data" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+    </entity>
+    <entity name="Item" representedClassName=".Item" syncable="YES">
+        <attribute name="date" attributeType="Date" defaultDateTimeInterval="467668680" indexed="YES" syncable="YES"/>
+        <attribute name="done" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
+        <attribute name="problem" attributeType="String" defaultValueString="_problem" syncable="YES"/>
+        <attribute name="title" attributeType="String" defaultValueString="_title" syncable="YES"/>
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photo" inverseName="item" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <entity name="Photo" representedClassName=".Photo" syncable="YES">
+        <relationship name="fullSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="FullSize" inverseName="photo" inverseEntity="FullSize" syncable="YES"/>
+        <relationship name="item" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Item" inverseName="photo" inverseEntity="Item" syncable="YES"/>
+        <relationship name="stampSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="StampSize" inverseName="photo" inverseEntity="StampSize" syncable="YES"/>
+        <relationship name="thumbSize" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="ThumbSize" inverseName="photo" inverseEntity="ThumbSize" syncable="YES"/>
+    </entity>
+    <entity name="StampSize" representedClassName=".StampSize" parentEntity="Image" syncable="YES">
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="stampSize" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <entity name="ThumbSize" representedClassName=".ThumbSize" parentEntity="Image" syncable="YES">
+        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="thumbSize" inverseEntity="Photo" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="-1944" positionY="-1080" width="128" height="118"/>
+        <element name="Photo" positionX="-1728" positionY="-1080" width="128" height="103"/>
+        <element name="Image" positionX="-1730" positionY="-936" width="128" height="58"/>
+        <element name="FullSize" positionX="-1872" positionY="-792" width="128" height="58"/>
+        <element name="StampSize" positionX="-1728" positionY="-792" width="128" height="58"/>
+        <element name="ThumbSize" positionX="-1584" positionY="-792" width="128" height="28"/>
+    </elements>
+</model>
