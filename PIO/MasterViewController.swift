@@ -49,6 +49,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         } catch {
             abort()
         }
+        performSegueWithIdentifier("showItemDetail", sender: item)
     }
 
     // MARK: - Segues
@@ -58,6 +59,15 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         if segue.identifier == "showDetail",
             let indexPath = tableView.indexPathForSelectedRow,
             item = fetchedResultsController.objectAtIndexPath(indexPath) as? Item,
+            nc = segue.destinationViewController as? UINavigationController,
+            controller = nc.topViewController as? DetailViewController {
+
+                controller.item = item
+                controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem()
+                controller.navigationItem.leftItemsSupplementBackButton = true
+        }
+        else if segue.identifier == "showItemDetail",
+            let item = sender as? Item,
             nc = segue.destinationViewController as? UINavigationController,
             controller = nc.topViewController as? DetailViewController {
 
