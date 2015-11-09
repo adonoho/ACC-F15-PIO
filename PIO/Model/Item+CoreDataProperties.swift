@@ -18,5 +18,6 @@ extension Item {
     @NSManaged var done: Bool
     @NSManaged var problem: String
     @NSManaged var title: String
+    @NSManaged var photo: Photo?
 
 }

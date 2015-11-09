@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import CoreData
 
-class DetailViewController: UIViewController {
+class DetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var doneSwitch: UISwitch!
@@ -38,11 +39,51 @@ class DetailViewController: UIViewController {
         self.configureView()
     }
 
+    override func viewDidAppear(animated: Bool) {
+
+        super.viewDidAppear(animated)
+
+        if let item = item
+            where nil == item.photo &&
+                UIImagePickerController.isSourceTypeAvailable(.Camera) {
+
+                    let ipc = UIImagePickerController()
+                    ipc.delegate = self
+                    ipc.sourceType = .Camera
+
+                    presentViewController(ipc, animated: true, completion: nil)
+        }
+
+    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 
+        var metaInfo = info
+
+        if let image = metaInfo.removeValueForKey(UIImagePickerControllerOriginalImage) as? UIImage,
+            item = item, moc = item.managedObjectContext {
+
+                let photo = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: moc) as! Photo
+                item.photo = photo
+
+                let fullSize = NSEntityDescription.insertNewObjectForEntityForName("FullSize", inManagedObjectContext: moc) as! FullSize
+                fullSize.data = UIImageJPEGRepresentation(image, 1.0)
+                photo.fullSize = fullSize
+
+                // Save the context.
+                do { try moc.save() }
+                catch { abort() }
+        }
+        dismissViewControllerAnimated(true, completion: nil)
+    }
+    func imagePickerControllerDidCancel(picker: UIImagePickerController) {
+
+        dismissViewControllerAnimated(true, completion: nil)
+    }
 }
 

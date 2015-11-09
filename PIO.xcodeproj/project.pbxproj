@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE043C161BF15B6A009D6142 /* XCGLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE043C151BF15B6A009D6142 /* XCGLogger.swift */; };
 		CE4857E61BDF034100CE4C3F /* Item+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */; };
 		CE4857E71BDF034100CE4C3F /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4857E51BDF034100CE4C3F /* Item.swift */; };
 		CE720A321BD1B076001F9DA9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE720A311BD1B076001F9DA9 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CE043C151BF15B6A009D6142 /* XCGLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCGLogger.swift; sourceTree = "<group>"; };
 		CE4857E41BDF034100CE4C3F /* Item+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Item+CoreDataProperties.swift"; path = "PIO/Model/Item+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		CE4857E51BDF034100CE4C3F /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Item.swift; path = PIO/Model/Item.swift; sourceTree = "<group>"; };
 		CE4857ED1BDF0C1F00CE4C3F /* PIO 03.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "PIO 03.xcdatamodel"; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 		CE720A301BD1B076001F9DA9 /* PIO */ = {
 			isa = PBXGroup;
 			children = (
+				CE043C151BF15B6A009D6142 /* XCGLogger.swift */,
 				CE720A311BD1B076001F9DA9 /* AppDelegate.swift */,
 				CE720A361BD1B076001F9DA9 /* MasterViewController.swift */,
 				CE720A381BD1B076001F9DA9 /* DetailViewController.swift */,
@@ -150,6 +153,7 @@
 				TargetAttributes = {
 					CE720A2D1BD1B076001F9DA9 = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = GVPA55C767;
 					};
 				};
 			};
@@ -189,6 +193,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE043C161BF15B6A009D6142 /* XCGLogger.swift in Sources */,
 				CE90C2221BE83C6B007C50E9 /* Photo.swift in Sources */,
 				CE90C21F1BE83C6B007C50E9 /* Image+CoreDataProperties.swift in Sources */,
 				CE90C21D1BE83C6B007C50E9 /* StampSize+CoreDataProperties.swift in Sources */,
@@ -252,6 +257,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = ../XCGLogger/XCGLogger/Library/XCGLogger/;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -269,6 +275,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -297,6 +304,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = ../XCGLogger/XCGLogger/Library/XCGLogger/;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -307,6 +315,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -317,10 +326,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PIO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddg.PIO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -329,10 +341,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = "";
 				INFOPLIST_FILE = PIO/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ddg.PIO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

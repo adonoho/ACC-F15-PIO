@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "756CD66FA95F4E5F57D2045545BB012460CD5D74",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "756CD66FA95F4E5F57D2045545BB012460CD5D74" : 0,
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "53640B1A-94AA-4149-809A-E9354F283EDE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "756CD66FA95F4E5F57D2045545BB012460CD5D74" : "PIO\/",
+    "CD1557C3AE966BEDF3490D85F9712687801B146C" : "XCGLogger\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "PIO",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "PIO.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/adonoho\/ACC-F15-PIO.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "756CD66FA95F4E5F57D2045545BB012460CD5D74"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/DaveWoodCom\/XCGLogger.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CD1557C3AE966BEDF3490D85F9712687801B146C"
+    }
+  ]
+}

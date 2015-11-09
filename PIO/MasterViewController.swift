@@ -44,11 +44,9 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
         item.date = NSDate()
 
         // Save the context.
-        do {
-            try context.save()
-        } catch {
-            abort()
-        }
+        do { try context.save() }
+        catch { abort() }
+
         performSegueWithIdentifier("showItemDetail", sender: item)
     }
 
