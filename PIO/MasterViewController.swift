@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class MasterViewController: UITableViewController, NSFetchedResultsControllerDelegate {
+class MasterViewController: UITableViewController, UINavigationControllerDelegate, NSFetchedResultsControllerDelegate {
 
     var detailViewController: DetailViewController? = nil
     var managedObjectContext: NSManagedObjectContext? = nil
@@ -26,6 +26,7 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        navigationController?.delegate = self
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -196,5 +197,25 @@ class MasterViewController: UITableViewController, NSFetchedResultsControllerDel
      }
      */
 
-}
+    // MARK: - UINavigationControllerDelegate methods.
 
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+
+        print(navigationController)
+
+        if let nc = viewController as? UINavigationController,
+            vc =  nc.topViewController as? protocol<UINavigationControllerDelegate> {
+
+                navigationController.delegate = vc
+        }
+        else if let vc = viewController as? protocol<UINavigationControllerDelegate> {
+            navigationController.delegate = vc
+        }
+
+    }
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+        
+        print(navigationController)
+        
+    }
+}

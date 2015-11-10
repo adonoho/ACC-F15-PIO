@@ -15,6 +15,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     @IBOutlet weak var doneSwitch: UISwitch!
     @IBOutlet weak var problemField: UITextField!
     @IBOutlet weak var titleField: UITextField!
+    @IBOutlet weak var imageView: UIImageView!
 
     var item: Item? {
         didSet {
@@ -30,6 +31,13 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             doneSwitch?.on = item.done
             problemField?.text = item.problem
             titleField?.text = item.title
+
+            if let imageView = imageView,
+                data = item.photo?.fullSize?.data,
+                image = UIImage(data: data) {
+
+                    imageView.image = image
+            }
         }
     }
 
@@ -42,24 +50,14 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     override func viewDidAppear(animated: Bool) {
 
         super.viewDidAppear(animated)
-
-        if let item = item
-            where nil == item.photo &&
-                UIImagePickerController.isSourceTypeAvailable(.Camera) {
-
-                    let ipc = UIImagePickerController()
-                    ipc.delegate = self
-                    ipc.sourceType = .Camera
-
-                    presentViewController(ipc, animated: true, completion: nil)
-        }
-
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+
+    // MARK: - UIImagePickerControllerDelegate methods.
 
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 
@@ -78,12 +76,82 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
                 // Save the context.
                 do { try moc.save() }
                 catch { abort() }
+
+                imageView.image = image
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
+
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
 
         dismissViewControllerAnimated(true, completion: nil)
     }
+
+    // MARK: - UINavigationControllerDelegate methods.
+
+    func navigationController(navigationController: UINavigationController, willShowViewController viewController: UIViewController, animated: Bool) {
+
+        print(navigationController)
+
+        if let nc = viewController as? UINavigationController,
+            vc =  nc.topViewController as? protocol<UINavigationControllerDelegate> {
+
+                navigationController.delegate = vc
+        }
+        else if let vc = viewController as? protocol<UINavigationControllerDelegate> {
+            navigationController.delegate = vc
+        }
+        
+    }
+
+    func navigationController(navigationController: UINavigationController, didShowViewController viewController: UIViewController, animated: Bool) {
+
+        print(navigationController)
+        
+        if let item = item,
+            nc = viewController as? UINavigationController,
+            vc = nc.topViewController
+            where vc == self && nil == item.photo &&
+                UIImagePickerController.isSourceTypeAvailable(.Camera) {
+
+                    let ipc = UIImagePickerController()
+                    ipc.delegate = self
+                    ipc.sourceType = .Camera
+
+                    presentViewController(ipc, animated: true, completion: nil)
+        }
+    }
 }
 
+func resizeImage(image: UIImage, toSize size: CGSize ) -> UIImage? {
+
+    if round(size.width) > 0.0 && round(size.height) > 0.0 {
+
+        let sizeRatio = size.width / size.height
+
+        var resize = image.size
+        let imageRatio = resize.width / resize.height;
+
+        let resizeRatio = imageRatio > sizeRatio ?
+            size.width / resize.width : size.height / resize.height;
+
+        resize.width  = round(resize.width  * resizeRatio);
+        resize.height = round(resize.height * resizeRatio);
+        
+        let rect = CGRect(origin: CGPoint(
+            x: round((size.width  - resize.width)  / 2.0),
+            y: round((size.height - resize.height) / 2.0)),
+            size: resize
+        )
+        UIGraphicsBeginImageContextWithOptions(size, false, 0.0);
+
+        image.drawInRect(rect, blendMode: .Normal, alpha: 1.0)
+
+        let image = UIGraphicsGetImageFromCurrentImageContext();
+
+        UIGraphicsEndImageContext();
+        
+        return image;
+    }
+    return nil
+}
