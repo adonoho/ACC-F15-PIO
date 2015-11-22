@@ -32,11 +32,20 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
             problemField?.text = item.problem
             titleField?.text = item.title
 
-            if let imageView = imageView,
-                data = item.photo?.fullSize?.data,
-                image = UIImage(data: data) {
+            if let imageView = imageView {
 
-                    imageView.image = image
+                if let stampSize = item.photo?.stampSize,
+                    data = stampSize.data,
+                    image = UIImage(data: data) {
+
+                        imageView.image = image
+                }
+                else if let fullSize = item.photo?.fullSize,
+                    data = fullSize.data,
+                    image = UIImage(data: data) {
+
+                        imageView.image = image
+                }
             }
         }
     }
@@ -59,6 +68,46 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
 
     // MARK: - UIImagePickerControllerDelegate methods.
 
+    func saveImage(image: UIImage, photo: Photo) {
+
+        if let moc = photo.managedObjectContext {
+
+            imageView.image = image
+
+            let imageViewSize = imageView.bounds.size
+            let peer = peerContextWithContext(moc)
+
+            peer.performBlock {
+
+                let photo = peer.objectWithID(photo.objectID) as! Photo
+                let fullSize = NSEntityDescription.insertNewObjectForEntityForName("FullSize", inManagedObjectContext: peer) as! FullSize
+                fullSize.data = UIImageJPEGRepresentation(image, 1.0)
+                photo.fullSize = fullSize
+
+                // Save the context.
+                do { try peer.save() }
+                catch { abort() }
+                
+                if let stampSizeImage = resizeImage(image, toSize: imageViewSize) {
+
+                    dispatch_async(dispatch_get_main_queue()) {
+
+                        self.imageView.image = stampSizeImage
+                    }
+//                    moc.performBlock { self.imageView.image = stampSizeImage }
+
+                    let stampSize = NSEntityDescription.insertNewObjectForEntityForName("StampSize", inManagedObjectContext: peer) as! StampSize
+                    stampSize.data = UIImageJPEGRepresentation(stampSizeImage, 1.0)
+                    photo.stampSize = stampSize
+
+                }
+                // Save the context.
+                do { try peer.save() }
+                catch { abort() }
+            }
+        }
+    }
+
     func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : AnyObject]) {
 
         var metaInfo = info
@@ -69,15 +118,11 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
                 let photo = NSEntityDescription.insertNewObjectForEntityForName("Photo", inManagedObjectContext: moc) as! Photo
                 item.photo = photo
 
-                let fullSize = NSEntityDescription.insertNewObjectForEntityForName("FullSize", inManagedObjectContext: moc) as! FullSize
-                fullSize.data = UIImageJPEGRepresentation(image, 1.0)
-                photo.fullSize = fullSize
-
                 // Save the context.
                 do { try moc.save() }
                 catch { abort() }
 
-                imageView.image = image
+                saveImage(image, photo: photo)
         }
         dismissViewControllerAnimated(true, completion: nil)
     }
@@ -123,7 +168,7 @@ class DetailViewController: UIViewController, UIImagePickerControllerDelegate, U
     }
 }
 
-func resizeImage(image: UIImage, toSize size: CGSize ) -> UIImage? {
+func resizeImage(image: UIImage, toSize size: CGSize) -> UIImage? {
 
     if round(size.width) > 0.0 && round(size.height) > 0.0 {
 
@@ -154,4 +199,13 @@ func resizeImage(image: UIImage, toSize size: CGSize ) -> UIImage? {
         return image;
     }
     return nil
+}
+
+func peerContextWithContext(moc: NSManagedObjectContext) -> NSManagedObjectContext {
+
+    let peer = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+
+    peer.persistentStoreCoordinator = moc.persistentStoreCoordinator
+
+    return peer
 }

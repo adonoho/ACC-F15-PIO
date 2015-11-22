@@ -128,11 +128,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UISplitViewControllerDele
         return coordinator
     }()
 
+    func didSaveNotification(notification: NSNotification) {
+
+        managedObjectContext.performBlock {
+
+            self.managedObjectContext.mergeChangesFromContextDidSaveNotification(notification)
+        }
+    }
+    
     lazy var managedObjectContext: NSManagedObjectContext = {
         // Returns the managed object context for the application (which is already bound to the persistent store coordinator for the application.) This property is optional since there are legitimate error conditions that could cause the creation of the context to fail.
         let moc = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
 
         moc.persistentStoreCoordinator = self.persistentStoreCoordinator
+
+        let nc = NSNotificationCenter.defaultCenter()
+
+        nc.addObserver(self, selector: "didSaveNotification:", name: NSManagedObjectContextDidSaveNotification, object: nil)
 
         return moc
     }()
